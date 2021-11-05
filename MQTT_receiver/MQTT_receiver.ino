@@ -88,6 +88,9 @@ void setup() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+  //The ESP8266 tries to reconnect automatically when the connection is lost
+  WiFi.setAutoReconnect(true);
+  WiFi.persistent(true);
 
   client.setServer(server, 1883);
   client.setCallback(callback);
